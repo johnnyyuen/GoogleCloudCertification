@@ -21,19 +21,19 @@ If the resource you are checking isn't publicly available, you must configure th
 
 ### NoSQL
 NoSQL is well for:
-✑ Developers are working with applications that create massive volumes of new, rapidly changing data types ג€" structured, semi-structured, unstructured and polymorphic data.
+Developers are working with applications that create massive volumes of new, rapidly changing data types ג€" structured, semi-structured, unstructured and polymorphic data.
 
 ### Cloud Dataflow
 Cloud Dataflow is a fully-managed service for transforming and enriching data in stream (real time) and batch (historical) modes with equal reliability and expressiveness -- no more complex workarounds or compromises needed.
 
 ### BigQuery
-BigQuery is designed for large-scale processing of tabular data, for OLAP.
-Tables can be time-partitioned and set to be expired at n days
-JobUser can only grant in Project level while DataView can run query job.
+- BigQuery is designed for large-scale processing of tabular data, for OLAP.
+- Tables can be time-partitioned and set to be expired at n days
+- JobUser can only grant in Project level while DataView can run query job.
 
 
 ### Cloud SQL:
-- To reduce no. of queries, set the memcache service level to dedicated. Create a key from the hash of the query, and return database values from memcache before issuing a query to Cloud SQL.
+To reduce no. of queries, set the memcache service level to dedicated. Create a key from the hash of the query, and return database values from memcache before issuing a query to Cloud SQL.
 
 ### Google Cloud Bigtable
 Google Cloud Bigtable is a scalable, fully-managed NoSQL wide-column database that is suitable for both real-time access and analytics
@@ -42,12 +42,11 @@ Good for:
 ✑ Low-latency read/write access
 ✑ High-throughput analytics
 ✑ Native time series support
-Google Cloud Bigtable is a scalable, fully-managed NoSQL wide-column database that is suitable for both real-time access and analytics
-workloads.
-Good for:
-✑ Low-latency read/write access
-✑ High-throughput analytics
-✑ Native time series support
+Google Cloud Bigtable is a scalable, fully-managed NoSQL wide-column database that is suitable for both real-time access and analytics workloads.
+> Good for:
+> ✑ Low-latency read/write access
+> ✑ High-throughput analytics
+> ✑ Native time series support
 Reference: https://cloud.google.com/storage-options/
 
 ### Type of Database in google:
@@ -63,26 +62,29 @@ Deployment Manager is used to automate the process of provisioning infrastructur
 
 ### Datastore
 Each entity in a Datastore mode database has a key that uniquely identifies it. The key consists of the following components:
+```
 • The namespace of the entity, which allows for multitenancy
 • The kind of the entity, which categorizes it for the purpose of queries
 • An identifier for the individual entity, which can be either
 • a key name string
 • an integer numeric ID
 • An optional ancestor path locating the entity within the database hierarchy
+```
 An application can fetch an individual entity from the database using the entity's key, or it can retrieve one or more entities by issuing a query
 based on the entities' keys or property values.
-Reference: https://cloud.google.com/datastore/docs/concepts/entities#datastore-datastore-named-key-python, 
+References:
+https://cloud.google.com/datastore/docs/concepts/entities#datastore-datastore-named-key-python, 
 https://cloud.google.com/datastore/docs/concepts/entities#datastore-datastore-named-key-python
 
 ### Dataproc
 - Google Cloud Dataproc is a fast, easy-to-use, low-cost and fully managed service that lets you run the Apache Spark and Apache Hadoop
 - Cloud Dataproc provisions big or small clusters rapidly, supports many popular job types, and is integrated with other Google Cloud Platform services, such as Google Cloud Storage and Stackdriver Logging, thus helping you reduce TCO.
 Dataproc runs Hadoop, so many kinds of jobs are supported automatically. When you create a cluster with Dataproc, the following technologies are configured by default:
-* Hadoop
-* Spark
-* Hive
-* Pig
-🚨 Only use preemptible nodes for jobs that are fault-tolerant or that are low enough priority that occasional job failure won't disrupt your business.
+> * Hadoop
+> * Spark
+> * Hive
+> * Pig
+Only use preemptible nodes for jobs that are fault-tolerant or that are low enough priority that occasional job failure won't disrupt your business.
 
 
 ### Identity-Aware Proxy 
@@ -95,37 +97,42 @@ Sequence of creating MIG from custom image:
 2. Create an instance template from the custom image.
 3. Create an autoscaled managed instance group from the instance template
 
+### Cloud VPN
 Cloud VPN gateways and tunnels are regional objects, not global
 
+### Cloud Filestore
 Cloud Filestore is a scalable and highly available shared file service fully managed by Google. Cloud Filestore provides
 persistent storage ideal for shared workloads. It is best suited for enterprise applications requiring persistent, durable, shared storage
 which is accessed by NFS or requires a POSIX compliant file system.
 reference: https://cloud.google.com/terms/services-20180724
 
-Google Kubernetes Engine
+### Google Kubernetes Engine
 To enable the GKE cluster to automatically add/remove nodes based on CPU load => Configure a HorizontalPodAutoscaler with a target CPU usage. Enable the Cluster Autoscaler from the GCP Console.
 Deploy each microservice as a Deployment (not POD). Expose the Deployment in the cluster using a Service, and use the Service DNS name to
 address it from other microservices within the cluster.
 
+### Resilience testing
 resilience testing can be done by Schedule a disaster simulation exercise during which you can shut off all VMs in a zone to see how your application behaves
 
-SSD - Local SSD cannot be used for boot volume (because its Non-persistent ) and always used for temporary data storage. However, pd-ssd ( Performance (SSD) persistent disks) is persistent and can be used as boot disk.
+
+### About SSD and storage
+- Local SSD cannot be used for boot volume (because its Non-persistent ) and always used for temporary data storage.
+- pd-ssd ( Performance (SSD) persistent disks) is persistent and can be used as boot disk.
 Reference: https://cloud.google.com/compute/docs/disks#localssds
 
+* Regional persistent disk is a storage option that provides synchronous replication of data between two zones in a region
 
-http response: Implement retry logic using a truncated exponential backoff strategy when response code is 5xx and 429.
+### http response: 
+Implement retry logic using a truncated exponential backoff strategy when response code is 5xx and 429.
 
 
 Using the Cron service provided by App Engine, publish messages to a Cloud Pub/Sub topic. Subscribe to that topic using a messageprocessing utility service running on Compute Engine instances.
 
 
-Instance Template
+### Instance Template
 * When doing rolling update, can choose between Proactive and Opportunistic ( The MIG applies an opportunistic update only when you manually initiate the update on selected instances or when new instances are created. New instances can be created when you or another service, such as an autoscaler, resizes the MIG)
-
-* Regional persistent disk is a storage option that provides synchronous replication of data between two zones in a region
-
 
 
 ====
-GitHub cheat sheet reference: https://github.com/blqthien/Google-Certified-Architect-exam-resources/blob/master/GCP-Products-Cheat-Sheet.md
+GitHub cheat sheet reference:  https://github.com/blqthien/Google-Certified-Architect-exam-resources/blob/master/GCP-Products-Cheat-Sheet.md
 
